@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, image } from 'react-native';
+import { Button, StyleSheet, Text, View, image, Button } from 'react-native';
 import { usastate } from 'react';
 import * as ImagePicker from 'expo-image-picker';
 
