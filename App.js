@@ -13,6 +13,9 @@ export default function App() {
       aspect: [4, 3],
       quality: 1,
     });
+    if (!result.canceled){
+      setimage(result.assets[0].uri)
+    }
   }
 
   return (
