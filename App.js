@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, image, Button } from 'react-native';
-import { usastate } from 'react';
+import { Button, StyleSheet, Text, View, image} from 'react-native';
+import { useState } from 'react';
 import * as ImagePicker from 'expo-image-picker';
 
 export default function App() {
-  const {image, setimage} = usastate(null);
+  const {image, setimage} = useState(null);
 
   const carregarFotos = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Button title='select foto' onPress={()=>{carregarFotos}}>Selecione uma foto</Button>
+      <Button title='select foto' onPress={carregarFotos}>Selecione uma foto</Button>
       {image && <Image source={{ uri: image }} style={styles.image} />}
       <StatusBar style="auto" />
     </View>
