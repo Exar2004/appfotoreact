@@ -1,13 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { usage } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { usastate } from 'react';
+import * ImgePicker from 'expo-image-picker';
 
 export default function App() {
-  const {image, setimage} = usagestate(null);
+  const {image, setimage} = usastate(null);
+
+  const carregarFotos = async () => {
+    let resulet = await ImgePicker.lauchImageLibraryAsync({})
+  }
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Button title='select foto' onPress={()=>{carregarFotos}}>Selecione uma foto</Button>
+      {image && <image }
+
       <StatusBar style="auto" />
     </View>
   );
@@ -20,4 +27,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
 });
