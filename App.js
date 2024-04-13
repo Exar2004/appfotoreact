@@ -1,20 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, image} from 'react-native';
+import { Button, StyleSheet, Text, View, Image} from 'react-native';
 import { useState } from 'react';
 import * as ImagePicker from 'expo-image-picker';
 
 export default function App() {
-  const {image, setimage} = useState(null);
+  const [image, setImage] = useState(null);
 
   const carregarFotos = async () => {
+    console.log('bom dia');
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     });
+    console.log(result);
     if (!result.canceled){
-      setimage(result.assets[0].uri)
+      setImage(result.assets[0].uri)
+      console.log(result)
     }
   }
 
